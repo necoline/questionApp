@@ -1,0 +1,23 @@
+{
+  "name": "parcel-reactjs",
+  "version": "1.0.0",
+  "description": "Question Voting App",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./src/index.html"
+  },
+  "keywords": [
+    "parcel",
+    "react"
+  ],
+  "author": "Necoline Hubner",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
+}
