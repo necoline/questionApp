@@ -25825,7 +25825,252 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"App.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"question/Question.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"question/QuestionForm.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+require("./Question.css");
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var QuestionForm =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(QuestionForm, _Component);
+
+  function QuestionForm() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, QuestionForm);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(QuestionForm)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      question: ""
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setSubmission", function (event) {
+      event.preventDefault(); // create id
+      // submit question post
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref) {
+      var target = _ref.target;
+      console.log('input', target);
+
+      _this.setState({
+        question: target.value
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(QuestionForm, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return _react.default.createElement("div", {
+        className: "form-container"
+      }, _react.default.createElement("form", {
+        className: "form",
+        onSubmit: function onSubmit(e) {
+          return _this2.setSubmission();
+        }
+      }, _react.default.createElement("h1", {
+        className: "title"
+      }, "Post it here!"), _react.default.createElement("label", {
+        htmlFor: "question",
+        className: "textarea-label"
+      }, "Question:"), _react.default.createElement("textarea", {
+        id: "question",
+        type: "text",
+        onChange: this.handleChange,
+        value: this.state.question
+      }), _react.default.createElement("button", {
+        className: "button"
+      }, "Submit")));
+    }
+  }]);
+
+  return QuestionForm;
+}(_react.Component);
+
+var _default = QuestionForm;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Question.css":"question/Question.css"}],"board/Board.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"board/Post.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Board.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Post = function Post(props) {
+  return _react.default.createElement("div", {
+    className: "post"
+  }, _react.default.createElement("div", null, props.rank), props.question, _react.default.createElement("div", null, props.voteCount));
+};
+
+var _default = Post;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Board.css":"board/Board.css"}],"board/Board.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+require("./Board.css");
+
+var _Post = _interopRequireDefault(require("./Post"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Board =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Board, _Component);
+
+  function Board() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Board);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Board)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      postList: [{
+        question: "sample?",
+        voteCount: 3,
+        id: 1
+      }, {
+        question: "sample 2?",
+        voteCount: 2,
+        id: 2
+      }]
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setVoteSubmission", function (question) {
+      return function (event) {
+        event.preventDefault(); // submit question update => question.voteCount++
+      };
+    });
+
+    return _this;
+  }
+
+  _createClass(Board, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log('mounting'); // get all posts
+      // order postList by voteCount
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return _react.default.createElement("div", {
+        className: "board-container"
+      }, this.state.postList.map(function (post) {
+        return _react.default.createElement(_Post.default, {
+          key: post.id,
+          question: post.question,
+          rank: "# ".concat(_this2.state.postList.indexOf(post) + 1),
+          voteCount: post.voteCount,
+          vote: _this2.setVoteSubmission()
+        });
+      }));
+    }
+  }]);
+
+  return Board;
+}(_react.Component);
+
+var _default = Board;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Board.css":"board/Board.css","./Post":"board/Post.jsx"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25836,6 +26081,12 @@ exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 
 require("./App.css");
+
+var _QuestionForm = _interopRequireDefault(require("./question/QuestionForm"));
+
+var _Board = _interopRequireDefault(require("./board/Board"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -25876,10 +26127,8 @@ function (_Component) {
       }, _react.default.createElement("header", {
         className: "App-header"
       }, _react.default.createElement("h1", {
-        className: "App-title"
-      }, "Welcome to React")), _react.default.createElement("p", {
-        className: "App-intro"
-      }, "To get started, edit ", _react.default.createElement("code", null, "src/App.js"), " and save to reload."));
+        className: "title"
+      }, "Have a question?")), _react.default.createElement(_QuestionForm.default, null), _react.default.createElement(_Board.default, null));
     }
   }]);
 
@@ -25888,7 +26137,7 @@ function (_Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./App.css":"App.css"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.css":"App.css","./question/QuestionForm":"question/QuestionForm.jsx","./board/Board":"board/Board.jsx"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -25930,7 +26179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53480" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53702" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

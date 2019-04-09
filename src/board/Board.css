@@ -1,0 +1,23 @@
+@media only screen and (min-width: 1024px){
+    .board-container {
+        margin: 5% 20%;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    .board-container {
+        margin: 3% 20%;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 758px){
+    .board-container {
+        margin: 3% 5%;
+    }
+}
+
+.board-container {
+    border: 3px solid #870D1D;
+}
+
+.post {
+    border: 3px solid blue;
+}
