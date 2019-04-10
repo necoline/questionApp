@@ -20,7 +20,6 @@ class Board extends Component {
     }
 
     componentDidMount() {
-      console.log('mounting')
       // get all posts
       // order postList by voteCount
     }
