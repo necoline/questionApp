@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './Board.css';
 import Post from './Post';
+import agent from "../agent";
+
 
 class Board extends Component {
     state = {
@@ -20,9 +22,20 @@ class Board extends Component {
     }
 
     componentDidMount() {
-      console.log('mounting')
       // get all posts
-      // order postList by voteCount
+      // this.fetchPosts()
+    }
+
+    fetchPosts = () => {
+      return agent
+        .get("/posts/list")
+        .then((post) => {
+          // order postList by voteCount
+          console.log('res', res.data.posts)
+        })
+        .catch((err) => {
+        console.error(err);
+      })
     }
 
     setVoteSubmission = question => event => {
