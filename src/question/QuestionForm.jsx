@@ -14,9 +14,9 @@ class QuestionForm extends Component {
         // create id
         // submit question post
         return agent
-        .post("/posts/create", this.state.question)
-        .then(() => console.log('post successful'))
-        .catch(() => console.error('error posting'))
+          .post("/posts/create", this.state)
+          .then(() => console.log('post successful'))
+          .catch(() => console.error('error posting'))
     };
 
     handleChange = ({ target }) => {
@@ -27,11 +27,10 @@ class QuestionForm extends Component {
     return (
       <div className="form-container">
         <form className="form" onSubmit={this.setSubmission()}>
-            <h1 className="title">Post it here!</h1>
-            <label htmlFor="question" className="textarea-label">Question:</label>
             <textarea 
                 id="question" 
                 type="text"
+                placeholder="Post it here!"
                 onChange={this.handleChange}
                 value={this.state.question}
                 >

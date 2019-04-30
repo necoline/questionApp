@@ -27559,7 +27559,7 @@ function (_Component) {
         console.log('ques', _this.state.question); // create id
         // submit question post
 
-        return _agent.default.post("/posts/create", _this.state.question).then(function () {
+        return _agent.default.post("/posts/create", _this.state).then(function () {
           return console.log('post successful');
         }).catch(function () {
           return console.error('error posting');
@@ -27586,14 +27586,10 @@ function (_Component) {
       }, _react.default.createElement("form", {
         className: "form",
         onSubmit: this.setSubmission()
-      }, _react.default.createElement("h1", {
-        className: "title"
-      }, "Post it here!"), _react.default.createElement("label", {
-        htmlFor: "question",
-        className: "textarea-label"
-      }, "Question:"), _react.default.createElement("textarea", {
+      }, _react.default.createElement("textarea", {
         id: "question",
         type: "text",
+        placeholder: "Post it here!",
         onChange: this.handleChange,
         value: this.state.question
       }), _react.default.createElement("button", {
@@ -27647,6 +27643,8 @@ var _react = _interopRequireWildcard(require("react"));
 require("./Board.css");
 
 var _Post = _interopRequireDefault(require("./Post"));
+
+var _agent = _interopRequireDefault(require("../agent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27702,6 +27700,15 @@ function (_Component) {
       }]
     });
 
+    _defineProperty(_assertThisInitialized(_this), "fetchPosts", function () {
+      return _agent.default.get("/posts/list").then(function (post) {
+        // order postList by voteCount
+        console.log('res', res.data.posts);
+      }).catch(function (err) {
+        console.error(err);
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "setVoteSubmission", function (question) {
       return function (event) {
         event.preventDefault(); // submit question update => question.voteCount++
@@ -27714,7 +27721,7 @@ function (_Component) {
   _createClass(Board, [{
     key: "componentDidMount",
     value: function componentDidMount() {// get all posts
-      // order postList by voteCount
+      // this.fetchPosts()
     }
   }, {
     key: "render",
@@ -27740,7 +27747,7 @@ function (_Component) {
 
 var _default = Board;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Board.css":"board/Board.css","./Post":"board/Post.jsx"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Board.css":"board/Board.css","./Post":"board/Post.jsx","../agent":"agent.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27849,7 +27856,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58531" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56755" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
