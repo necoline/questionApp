@@ -5,28 +5,7 @@ import Post from './Post';
 import agent from "../agent";
 
 
-function Board () {
-
-    const [postList, setPostList] = useState([]);
-
-    useEffect(() => {
-      fetchPosts()
-    }, [])
-
-
-    const fetchPosts = () => {
-      console.log('fetching')
-      return agent
-        .get("/posts/list")
-        .then((post) => {
-          console.log('post', post.data.posts)
-          setPostList(post.data.posts)
-
-        })
-        .catch((err) => {
-        console.error(err);
-      })
-    }
+function Board ({postList}) {
 
       const setVoteSubmission = question => event => {
         event.preventDefault();
