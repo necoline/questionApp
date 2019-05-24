@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import regeneratorRuntime from "regenerator-runtime";
 import './Board.css';
 import Post from './Post';
 import agent from "../agent";
@@ -7,38 +7,28 @@ import agent from "../agent";
 
 class Board extends Component {
     state = {
-      postList: [
-        {
-          question: "sample?",
-          voteCount: 3,
-          id: 1
-        },
-        {
-          question: "sample 2?",
-          voteCount: 2,
-          id: 2
-        }
-      ]
+      postList: []
     }
 
     componentDidMount() {
       // get all posts
-      // this.fetchPosts()
+      this.fetchPosts()
     }
 
     fetchPosts = () => {
+      console.log('fetching')
       return agent
         .get("/posts/list")
         .then((post) => {
-          // order postList by voteCount
-          console.log('res', res.data.posts)
+          console.log('post', post.data.posts)
+          this.setState({postList: post.data.posts})
         })
         .catch((err) => {
         console.error(err);
       })
     }
 
-    setVoteSubmission = question => event => {
+      setVoteSubmission = question => event => {
         event.preventDefault();
       // submit question update => question.voteCount++
     };
@@ -46,9 +36,9 @@ class Board extends Component {
   render() {
     return (
       <div className="board-container">
-        {this.state.postList.map(post => 
+        {this.state.postList.map(post => git 
           <Post 
-            key={post.id}
+            key={post._id}
             question={post.question} 
             rank={`# ${this.state.postList.indexOf(post)+ 1}`} 
             voteCount={post.voteCount} 
