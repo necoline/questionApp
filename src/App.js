@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './App.css';
 import QuestionForm from './question/QuestionForm';
 import Board from './board/Board';
 
-class App extends Component {
-  render() {
+function App() {
     return (
       <div className="App">
         <header className="App-header">
@@ -17,7 +16,6 @@ class App extends Component {
         <Board />
       </div>
     );
-  }
 }
 
 export default App;

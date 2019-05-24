@@ -36,7 +36,7 @@ class Board extends Component {
   render() {
     return (
       <div className="board-container">
-        {this.state.postList.map(post => git 
+        {this.state.postList.map(post => 
           <Post 
             key={post._id}
             question={post.question} 
