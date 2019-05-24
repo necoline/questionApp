@@ -1,11 +1,39 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect} from 'react';
 
 import './App.css';
 import QuestionForm from './question/QuestionForm';
 import Board from './board/Board';
+import agent from "./agent";
 
-class App extends Component {
-  render() {
+function App() {
+  const [postList, setPostList] = useState([]);
+
+  useEffect(() => {
+    fetchPosts()
+  }, [])
+
+  const fetchPosts = () => {
+    console.log('fetch')
+    return agent
+      .get("/posts/list")
+      .then((post) => {
+        setPostList(post.data.posts)
+      })
+      .catch((err) => {
+      console.error(err);
+    })
+  }
+
+  const addQuestion = (question) => {
+    return agent
+      .post("/posts/create", {question})
+      .then(() => {
+        console.log('post successful')
+        fetchPosts()
+      })
+      .catch(() => console.error('error posting'))
+  };
+
     return (
       <div className="App">
         <header className="App-header">
@@ -13,11 +41,10 @@ class App extends Component {
           Have a question?
           </h1>
         </header>
-        <QuestionForm />
-        <Board />
+        <QuestionForm addQuestion={addQuestion} fetchPosts={fetchPosts}/>
+        <Board postList={postList} />
       </div>
     );
-  }
 }
 
 export default App;

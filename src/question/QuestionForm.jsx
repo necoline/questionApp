@@ -1,36 +1,26 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import './Question.css';
-import agent from "../agent";
 
-class QuestionForm extends Component {
-    state = {
-        question: ""
-    }
 
-    setSubmission = () => event => {
-        event.preventDefault();
-        console.log('ques', this.state.question)
-        return agent
-          .post("/posts/create", this.state)
-          .then(() => console.log('post successful'))
-          .catch(() => console.error('error posting'))
+function QuestionForm ({addQuestion, fetchPosts}) {
+  const [question, setQuestion] = useState("")
+
+    const setSubmission = event => {
+        event.preventDefault()
+        addQuestion(question)
+        setQuestion("")
     };
 
-    handleChange = ({ target }) => {
-        this.setState({ question: target.value });
-    };
-
-  render() {
     return (
       <div className="form-container">
-        <form className="form" onSubmit={this.setSubmission()}>
+        <form className="form" onSubmit={setSubmission}>
             <textarea 
                 id="question" 
                 type="text"
                 placeholder="Post it here!"
-                onChange={this.handleChange}
-                value={this.state.question}
+                onChange={e => setQuestion(e.target.value)}
+                value={question}
                 >
             </textarea>
             <button className="button">
@@ -39,7 +29,6 @@ class QuestionForm extends Component {
         </form>
       </div>
     );
-  }
 }
 
 export default QuestionForm;
