@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 
 import './Question.css';
-import agent from "../agent";
 
 
-function QuestionForm () {
-  const [question, setQuestion] = useState("");
+function QuestionForm ({addQuestion}) {
+  const [question, setQuestion] = useState("")
 
     const setSubmission = event => {
-        event.preventDefault();
-        return agent
-          .post("/posts/create", {question})
-          .then(() => console.log('post successful'))
-          .catch(() => console.error('error posting'))
+        event.preventDefault()
+        addQuestion(question)
     };
 
     return (
