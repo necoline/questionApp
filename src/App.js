@@ -13,22 +13,27 @@ function App() {
   }, [])
 
   const fetchPosts = () => {
+    console.log('fetch')
     return agent
       .get("/posts/list")
       .then((post) => {
         setPostList(post.data.posts)
-
       })
       .catch((err) => {
       console.error(err);
     })
   }
+
   const addQuestion = (question) => {
     return agent
       .post("/posts/create", {question})
-      .then(() => console.log('post successful'))
+      .then(() => {
+        console.log('post successful')
+        fetchPosts()
+      })
       .catch(() => console.error('error posting'))
-};
+  };
+
     return (
       <div className="App">
         <header className="App-header">
@@ -36,7 +41,7 @@ function App() {
           Have a question?
           </h1>
         </header>
-        <QuestionForm addQuestion={addQuestion}/>
+        <QuestionForm addQuestion={addQuestion} fetchPosts={fetchPosts}/>
         <Board postList={postList} />
       </div>
     );

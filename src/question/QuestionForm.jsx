@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import './Question.css';
 
 
-function QuestionForm ({addQuestion}) {
+function QuestionForm ({addQuestion, fetchPosts}) {
   const [question, setQuestion] = useState("")
 
     const setSubmission = event => {
         event.preventDefault()
         addQuestion(question)
+        setQuestion("")
     };
 
     return (

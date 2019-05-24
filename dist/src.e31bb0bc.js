@@ -25853,7 +25853,8 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function QuestionForm(_ref) {
-  var addQuestion = _ref.addQuestion;
+  var addQuestion = _ref.addQuestion,
+      fetchPosts = _ref.fetchPosts;
 
   var _useState = (0, _react.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -25863,6 +25864,7 @@ function QuestionForm(_ref) {
   var setSubmission = function setSubmission(event) {
     event.preventDefault();
     addQuestion(question);
+    setQuestion("");
   };
 
   return _react.default.createElement("div", {
@@ -28435,6 +28437,7 @@ function App() {
   }, []);
 
   var fetchPosts = function fetchPosts() {
+    console.log('fetch');
     return _agent.default.get("/posts/list").then(function (post) {
       setPostList(post.data.posts);
     }).catch(function (err) {
@@ -28446,7 +28449,8 @@ function App() {
     return _agent.default.post("/posts/create", {
       question: question
     }).then(function () {
-      return console.log('post successful');
+      console.log('post successful');
+      fetchPosts();
     }).catch(function () {
       return console.error('error posting');
     });
@@ -28459,7 +28463,8 @@ function App() {
   }, _react.default.createElement("h1", {
     className: "title"
   }, "Have a question?")), _react.default.createElement(_QuestionForm.default, {
-    addQuestion: addQuestion
+    addQuestion: addQuestion,
+    fetchPosts: fetchPosts
   }), _react.default.createElement(_Board.default, {
     postList: postList
   }));
