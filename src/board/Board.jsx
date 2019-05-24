@@ -1,53 +1,51 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import regeneratorRuntime from "regenerator-runtime";
 import './Board.css';
 import Post from './Post';
 import agent from "../agent";
 
 
-class Board extends Component {
-    state = {
-      postList: []
-    }
+function Board () {
 
-    componentDidMount() {
-      // get all posts
-      this.fetchPosts()
-    }
+    const [postList, setPostList] = useState([]);
 
-    fetchPosts = () => {
+    useEffect(() => {
+      fetchPosts()
+    }, [])
+
+
+    const fetchPosts = () => {
       console.log('fetching')
       return agent
         .get("/posts/list")
         .then((post) => {
           console.log('post', post.data.posts)
-          this.setState({postList: post.data.posts})
+          setPostList(post.data.posts)
+
         })
         .catch((err) => {
         console.error(err);
       })
     }
 
-      setVoteSubmission = question => event => {
+      const setVoteSubmission = question => event => {
         event.preventDefault();
       // submit question update => question.voteCount++
     };
 
-  render() {
     return (
       <div className="board-container">
-        {this.state.postList.map(post => 
+        {postList.map(post => 
           <Post 
             key={post._id}
             question={post.question} 
-            rank={`# ${this.state.postList.indexOf(post)+ 1}`} 
+            rank={`# ${postList.indexOf(post)+ 1}`} 
             voteCount={post.voteCount} 
-            vote={this.setVoteSubmission()}
+            vote={setVoteSubmission()}
           />
         )}
       </div>
     );
-  }
 }
 
 export default Board;
