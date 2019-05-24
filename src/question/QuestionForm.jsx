@@ -11,8 +11,6 @@ class QuestionForm extends Component {
     setSubmission = () => event => {
         event.preventDefault();
         console.log('ques', this.state.question)
-        // create id
-        // submit question post
         return agent
           .post("/posts/create", this.state)
           .then(() => console.log('post successful'))
