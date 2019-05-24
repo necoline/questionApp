@@ -26682,7 +26682,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Post = function Post(props) {
   return _react.default.createElement("div", {
     className: "post"
-  }, _react.default.createElement("div", null, props.rank), props.question, _react.default.createElement("div", null, props.voteCount));
+  }, _react.default.createElement("div", {
+    className: "post-stats"
+  }, "#", props.rank, "(", props.voteCount, ")"), props.question, _react.default.createElement("div", null, _react.default.createElement("span", null, "up"), _react.default.createElement("span", null, "down")));
 };
 
 var _default = Post;
@@ -28437,7 +28439,6 @@ function App() {
   }, []);
 
   var fetchPosts = function fetchPosts() {
-    console.log('fetch');
     return _agent.default.get("/posts/list").then(function (post) {
       setPostList(post.data.posts);
     }).catch(function (err) {

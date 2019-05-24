@@ -13,7 +13,6 @@ function App() {
   }, [])
 
   const fetchPosts = () => {
-    console.log('fetch')
     return agent
       .get("/posts/list")
       .then((post) => {

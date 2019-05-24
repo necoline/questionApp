@@ -4,12 +4,14 @@ import './Board.css';
 
 const Post = props => (
       <div className="post">
-        <div>
-          {props.rank}
+        <div className="post-stats">
+          #{props.rank}
+          ({props.voteCount})
         </div>
         {props.question}
         <div>
-          {props.voteCount}
+          <span>up</span>
+          <span>down</span>
         </div>
       </div>
     );
