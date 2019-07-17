@@ -26683,8 +26683,12 @@ var Post = function Post(props) {
   return _react.default.createElement("div", {
     className: "post"
   }, _react.default.createElement("div", {
-    className: "post-stats"
-  }, "#", props.rank, "(", props.voteCount, ")"), props.question, _react.default.createElement("div", null, _react.default.createElement("span", null, "up"), _react.default.createElement("span", null, "down")));
+    className: "post-data"
+  }, props.rank, "(", props.voteCount, ")"), props.question, _react.default.createElement("div", null, _react.default.createElement("img", {
+    src: "../../assets/up-arrow.svg",
+    alt: "up vote",
+    height: "50px"
+  }), _react.default.createElement("span", null, "down")));
 };
 
 var _default = Post;
@@ -28450,10 +28454,10 @@ function App() {
     return _agent.default.post("/posts/create", {
       question: question
     }).then(function () {
-      console.log('post successful');
+      console.log("post successful");
       fetchPosts();
     }).catch(function () {
-      return console.error('error posting');
+      return console.error("error posting");
     });
   };
 
@@ -28463,12 +28467,14 @@ function App() {
     className: "App-header"
   }, _react.default.createElement("h1", {
     className: "title"
-  }, "Have a question?")), _react.default.createElement(_QuestionForm.default, {
+  }, "Have a question?")), _react.default.createElement("div", {
+    className: "body"
+  }, _react.default.createElement(_QuestionForm.default, {
     addQuestion: addQuestion,
     fetchPosts: fetchPosts
   }), _react.default.createElement(_Board.default, {
     postList: postList
-  }));
+  })));
 }
 
 var _default = App;
@@ -28515,7 +28521,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63441" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52816" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

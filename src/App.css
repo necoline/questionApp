@@ -1,11 +1,18 @@
 .App-header {
-    background-color: #d500f9;
-    padding: 20px;
-    color: white;
-  }
-  
-  .title {
-    font-size: 1.5em;
-    text-align: center;
-    color: white
-  }
+  background-color: #81a5b3;
+  padding: 20px;
+  color: white;
+}
+
+.title {
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+}
+
+.body {
+  background-color: #d3d5e1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
