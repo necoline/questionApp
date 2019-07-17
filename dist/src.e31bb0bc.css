@@ -22,6 +22,12 @@ body {
   height: 100%;
 }
 
+@media only screen and (min-width: 320px) and (max-width: 758px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+}
+
 .form {
   display: grid;
   padding: 40px 20px;

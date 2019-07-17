@@ -1,0 +1,44 @@
+{
+  "questions": [
+    {
+      "_id": 1,
+      "datePosted": "07/13/19",
+      "questionText": "What is node?",
+      "votes": 0,
+      "comments": [
+        {
+          "_id": 11,
+          "datePosted": "07/13/19",
+          "comment": "It is a backend framework using JavaScript",
+          "votes": 0
+        },
+        {
+          "_id": 12,
+          "datePosted": "07/14/19",
+          "comment": "It is a term for an endpoint of sorts. NodeJS is the framework.",
+          "votes": 1
+        }
+      ]
+    },
+    {
+      "_id": 2,
+      "datePosted": "07/15/19",
+      "questionText": "Who uses React?",
+      "votes": 0,
+      "comments": [
+        {
+          "_id": 21,
+          "datePosted": "07/16/19",
+          "comment": "It was created by and maintained by Facebook",
+          "votes": 2
+        },
+        {
+          "_id": 22,
+          "datePosted": "07/16/19",
+          "comment": "Many companies rely on React to build their frontend.",
+          "votes": 1
+        }
+      ]
+    }
+  ]
+}
