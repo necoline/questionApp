@@ -1,5 +1,5 @@
 import React from "react";
-import "./Board.css";
+import "./post.css";
 
 const Post = props => (
   <div className="post">

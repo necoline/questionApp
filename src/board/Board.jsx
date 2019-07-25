@@ -11,7 +11,7 @@ function Board({ postList }) {
   };
 
   return (
-    <div className="board-container">
+    <div className="board__container">
       {postList.map(post => (
         <Post
           key={post._id}

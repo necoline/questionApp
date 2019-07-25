@@ -26665,6 +26665,11 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"board/post.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"board/Post.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -26675,7 +26680,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-require("./Board.css");
+require("./post.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26693,7 +26698,7 @@ var Post = function Post(props) {
 
 var _default = Post;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Board.css":"board/Board.css"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./post.css":"board/post.css"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -28388,7 +28393,7 @@ function Board(_ref) {
   };
 
   return _react.default.createElement("div", {
-    className: "board-container"
+    className: "board__container"
   }, postList.map(function (post) {
     return _react.default.createElement(_Post.default, {
       key: post._id,
