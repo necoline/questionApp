@@ -25825,12 +25825,12 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"question/Question.css":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"questionBoard/question/Question.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"question/QuestionForm.jsx":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"questionBoard/question/QuestionForm.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25887,7 +25887,7 @@ function QuestionForm(_ref) {
 
 var _default = QuestionForm;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Question.css":"question/Question.css"}],"../node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Question.css":"questionBoard/question/Question.css"}],"../node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 /**
  * Copyright (c) 2014, Facebook, Inc.
@@ -26660,17 +26660,17 @@ if (hadRuntime) {
   }
 }
 
-},{"./runtime":"../node_modules/regenerator-runtime/runtime.js"}],"board/Board.css":[function(require,module,exports) {
+},{"./runtime":"../node_modules/regenerator-runtime/runtime.js"}],"questionBoard/board/Board.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"board/post.css":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"questionBoard/board/post.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"board/Post.jsx":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"questionBoard/board/Post.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26698,7 +26698,7 @@ var Post = function Post(props) {
 
 var _default = Post;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./post.css":"board/post.css"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./post.css":"questionBoard/board/post.css"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -28298,7 +28298,7 @@ var agent = _axios.default.create({
 
 var _default = agent;
 exports.default = _default;
-},{"axios":"../node_modules/axios/index.js"}],"board/Board.jsx":[function(require,module,exports) {
+},{"axios":"../node_modules/axios/index.js"}],"questionBoard/board/Board.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28314,7 +28314,7 @@ require("./Board.css");
 
 var _Post = _interopRequireDefault(require("./Post"));
 
-var _agent = _interopRequireDefault(require("../agent"));
+var _agent = _interopRequireDefault(require("../../agent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28344,7 +28344,36 @@ function Board(_ref) {
 
 var _default = Board;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","regenerator-runtime":"../node_modules/regenerator-runtime/runtime-module.js","./Board.css":"board/Board.css","./Post":"board/Post.jsx","../agent":"agent.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","regenerator-runtime":"../node_modules/regenerator-runtime/runtime-module.js","./Board.css":"questionBoard/board/Board.css","./Post":"questionBoard/board/Post.jsx","../../agent":"agent.js"}],"common/header.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"common/Header.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./header.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header(props) {
+  return _react.default.createElement("header", {
+    className: "header"
+  }, _react.default.createElement("h1", {
+    className: "header__title"
+  }, props.headerTitle));
+};
+
+var _default = Header;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./header.css":"common/header.css"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28356,9 +28385,11 @@ var _react = _interopRequireWildcard(require("react"));
 
 require("./App.css");
 
-var _QuestionForm = _interopRequireDefault(require("./question/QuestionForm"));
+var _QuestionForm = _interopRequireDefault(require("./questionBoard/question/QuestionForm"));
 
-var _Board = _interopRequireDefault(require("./board/Board"));
+var _Board = _interopRequireDefault(require("./questionBoard/board/Board"));
+
+var _Header = _interopRequireDefault(require("./common/Header"));
 
 var _agent = _interopRequireDefault(require("./agent"));
 
@@ -28405,11 +28436,9 @@ function App() {
 
   return _react.default.createElement("div", {
     className: "App"
-  }, _react.default.createElement("header", {
-    className: "App-header"
-  }, _react.default.createElement("h1", {
-    className: "title"
-  }, "Have a question?")), _react.default.createElement("div", {
+  }, _react.default.createElement(_Header.default, {
+    headerTitle: "Have a question?"
+  }), _react.default.createElement("div", {
     className: "body"
   }, _react.default.createElement(_QuestionForm.default, {
     addQuestion: addQuestion,
@@ -28421,7 +28450,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./App.css":"App.css","./question/QuestionForm":"question/QuestionForm.jsx","./board/Board":"board/Board.jsx","./agent":"agent.js"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.css":"App.css","./questionBoard/question/QuestionForm":"questionBoard/question/QuestionForm.jsx","./questionBoard/board/Board":"questionBoard/board/Board.jsx","./common/Header":"common/Header.jsx","./agent":"agent.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -28463,7 +28492,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51395" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51757" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
