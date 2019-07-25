@@ -26665,6 +26665,11 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"board/post.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"board/Post.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -26675,19 +26680,25 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-require("./Board.css");
+require("./post.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Post = function Post(props) {
   return _react.default.createElement("div", {
     className: "post"
-  }, _react.default.createElement("div", null, props.rank), props.question, _react.default.createElement("div", null, props.voteCount));
+  }, _react.default.createElement("div", {
+    className: "post-data"
+  }, props.rank, "(", props.voteCount, ")"), props.question, _react.default.createElement("div", null, _react.default.createElement("img", {
+    src: "../../assets/up-arrow.svg",
+    alt: "up vote",
+    height: "50px"
+  }), _react.default.createElement("span", null, "down")));
 };
 
 var _default = Post;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Board.css":"board/Board.css"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./post.css":"board/post.css"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -28382,7 +28393,7 @@ function Board(_ref) {
   };
 
   return _react.default.createElement("div", {
-    className: "board-container"
+    className: "board__container"
   }, postList.map(function (post) {
     return _react.default.createElement(_Post.default, {
       key: post._id,
@@ -28437,7 +28448,6 @@ function App() {
   }, []);
 
   var fetchPosts = function fetchPosts() {
-    console.log('fetch');
     return _agent.default.get("/posts/list").then(function (post) {
       setPostList(post.data.posts);
     }).catch(function (err) {
@@ -28449,10 +28459,10 @@ function App() {
     return _agent.default.post("/posts/create", {
       question: question
     }).then(function () {
-      console.log('post successful');
+      console.log("post successful");
       fetchPosts();
     }).catch(function () {
-      return console.error('error posting');
+      return console.error("error posting");
     });
   };
 
@@ -28462,12 +28472,14 @@ function App() {
     className: "App-header"
   }, _react.default.createElement("h1", {
     className: "title"
-  }, "Have a question?")), _react.default.createElement(_QuestionForm.default, {
+  }, "Have a question?")), _react.default.createElement("div", {
+    className: "body"
+  }, _react.default.createElement(_QuestionForm.default, {
     addQuestion: addQuestion,
     fetchPosts: fetchPosts
   }), _react.default.createElement(_Board.default, {
     postList: postList
-  }));
+  })));
 }
 
 var _default = App;
@@ -28514,7 +28526,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63441" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49546" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

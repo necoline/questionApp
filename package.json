@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "json-loader": "^0.5.7",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
