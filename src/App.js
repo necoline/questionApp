@@ -4,6 +4,7 @@ import "./App.css";
 import QuestionForm from "./questionBoard/question/QuestionForm";
 import Board from "./questionBoard/board/Board";
 import Header from "./common/Header";
+import Tabs from "./common/Tabs";
 import agent from "./agent";
 
 function App() {
@@ -37,10 +38,15 @@ function App() {
   return (
     <div className="App">
       <Header headerTitle="Have a question?" />
-      <div className="body">
+      <Tabs
+        addQuestion={addQuestion}
+        fetchPosts={fetchPosts}
+        postList={postList}
+      />
+      {/* <div className="body">
         <QuestionForm addQuestion={addQuestion} fetchPosts={fetchPosts} />
         <Board postList={postList} />
-      </div>
+      </div> */}
     </div>
   );
 }

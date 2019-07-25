@@ -14,9 +14,12 @@
   "author": "Necoline Hubner",
   "license": "MIT",
   "dependencies": {
+    "@reach/menu-button": "^0.1.18",
+    "@reach/tabs": "^0.1.6",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "json-loader": "^0.5.7",
+    "prop-types": "^15.6.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
