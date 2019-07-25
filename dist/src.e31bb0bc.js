@@ -28402,43 +28402,7 @@ function Board(_ref) {
 
 var _default = Board;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","regenerator-runtime":"../node_modules/regenerator-runtime/runtime-module.js","./Board.css":"board/Board.css","./Post":"board/Post.jsx","../agent":"agent.js"}],"data.json":[function(require,module,exports) {
-module.exports = {
-  "questions": [{
-    "_id": 1,
-    "datePosted": "07/13/19",
-    "questionText": "What is node?",
-    "votes": 0,
-    "comments": [{
-      "_id": 11,
-      "datePosted": "07/13/19",
-      "comment": "It is a backend framework using JavaScript",
-      "votes": 0
-    }, {
-      "_id": 12,
-      "datePosted": "07/14/19",
-      "comment": "It is a term for an endpoint of sorts. NodeJS is the framework.",
-      "votes": 1
-    }]
-  }, {
-    "_id": 2,
-    "datePosted": "07/15/19",
-    "questionText": "Who uses React?",
-    "votes": 0,
-    "comments": [{
-      "_id": 21,
-      "datePosted": "07/16/19",
-      "comment": "It was created by and maintained by Facebook",
-      "votes": 2
-    }, {
-      "_id": 22,
-      "datePosted": "07/16/19",
-      "comment": "Many companies rely on React to build their frontend.",
-      "votes": 1
-    }]
-  }]
-};
-},{}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","regenerator-runtime":"../node_modules/regenerator-runtime/runtime-module.js","./Board.css":"board/Board.css","./Post":"board/Post.jsx","../agent":"agent.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28455,8 +28419,6 @@ var _QuestionForm = _interopRequireDefault(require("./question/QuestionForm"));
 var _Board = _interopRequireDefault(require("./board/Board"));
 
 var _agent = _interopRequireDefault(require("./agent"));
-
-var _data = _interopRequireDefault(require("./data"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28477,49 +28439,27 @@ function App() {
       setPostList = _useState2[1];
 
   (0, _react.useEffect)(function () {
-    // fetchPosts();
-    _data.default.questions;
-  }, []); // fake until real db is up
+    fetchPosts();
+  }, []);
 
   var fetchPosts = function fetchPosts() {
-    console.log("where is this called?");
-    return _data.default.questions;
-  }; // const fetchPosts = () => {
-  //   return agent
-  //     .get("/posts/list")
-  //     .then(post => {
-  //       setPostList(post.data.posts);
-  //     })
-  //     .catch(err => {
-  //       console.error(err);
-  //     });
-  // };
-  // fake until real db is up
-
+    return _agent.default.get("/posts/list").then(function (post) {
+      setPostList(post.data.posts);
+    }).catch(function (err) {
+      console.error(err);
+    });
+  };
 
   var addQuestion = function addQuestion(question) {
-    var newQuestion = {
-      _id: Math.random(),
-      datePosted: new Date(),
-      questionText: question,
-      votes: 0
-    };
-
-    _data.default.questions.push(newQuestion);
-
-    fetchPosts();
-  }; // const addQuestion = question => {
-  //   return (
-  //     agent
-  //       .post("/posts/create", { question })
-  //       .then(() => {
-  //         console.log("post successful");
-  //         fetchPosts();
-  //       })
-  //       .catch(() => console.error("error posting"))
-  //   );
-  // };
-
+    return _agent.default.post("/posts/create", {
+      question: question
+    }).then(function () {
+      console.log("post successful");
+      fetchPosts();
+    }).catch(function () {
+      return console.error("error posting");
+    });
+  };
 
   return _react.default.createElement("div", {
     className: "App"
@@ -28539,7 +28479,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./App.css":"App.css","./question/QuestionForm":"question/QuestionForm.jsx","./board/Board":"board/Board.jsx","./agent":"agent.js","./data":"data.json"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.css":"App.css","./question/QuestionForm":"question/QuestionForm.jsx","./board/Board":"board/Board.jsx","./agent":"agent.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -28581,7 +28521,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57683" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49546" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
