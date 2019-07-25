@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import "./App.css";
-import QuestionForm from "./question/QuestionForm";
-import Board from "./board/Board";
+import QuestionForm from "./questionBoard/question/QuestionForm";
+import Board from "./questionBoard/board/Board";
 import agent from "./agent";
 
 function App() {

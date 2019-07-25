@@ -4,7 +4,7 @@
   "description": "Question Voting App",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./src/index.html --no-cache",
+    "start": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html --no-cache"
   },
   "keywords": [
