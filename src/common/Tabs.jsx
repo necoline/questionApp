@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs";
-import Home from "../home/Home";
+import Lesson from "../lesson/Lesson";
 import QuestionForm from "../questionBoard/question/QuestionForm";
 import Board from "../questionBoard/board/Board";
 import "@reach/tabs/styles.css";
@@ -9,13 +9,13 @@ import "./tabs.css";
 const TabContainer = ({ postList, addQuestion, fetchPosts }) => (
   <Tabs>
     <TabList>
-      <Tab>Home</Tab>
+      <Tab>Lesson</Tab>
       <Tab>Questions</Tab>
     </TabList>
 
     <TabPanels className="body">
       <TabPanel>
-        <Home />
+        <Lesson />
       </TabPanel>
       <TabPanel>
         <div>
