@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs";
+
+import QuestionForm from "./questionBoard/question/QuestionForm";
+import Board from "./questionBoard/board/Board";
+import Header from "./common/Header";
+import Lesson from "./lesson/Lesson";
+import agent from "./agent";
 
 import "./App.css";
-import QuestionForm from "./question/QuestionForm";
-import Board from "./board/Board";
-import agent from "./agent";
+import "@reach/tabs/styles.css";
 
 function App() {
   const [postList, setPostList] = useState([]);
@@ -35,13 +40,25 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="title">Have a question?</h1>
-      </header>
-      <div className="body">
-        <QuestionForm addQuestion={addQuestion} fetchPosts={fetchPosts} />
-        <Board postList={postList} />
-      </div>
+      <Header headerTitle="Have a question?" />
+      <Tabs>
+        <TabList>
+          <Tab>Lesson</Tab>
+          <Tab>Questions</Tab>
+        </TabList>
+
+        <TabPanels className="body">
+          <TabPanel>
+            <Lesson />
+          </TabPanel>
+          <TabPanel>
+            <div className="split-panel">
+              <QuestionForm addQuestion={addQuestion} fetchPosts={fetchPosts} />
+              <Board postList={postList} />
+            </div>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </div>
   );
 }

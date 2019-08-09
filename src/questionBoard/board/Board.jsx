@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import regeneratorRuntime from "regenerator-runtime";
 import "./Board.css";
 import Post from "./Post";
-import agent from "../agent";
+import agent from "../../agent";
 
 function Board({ postList }) {
   const setVoteSubmission = question => event => {
